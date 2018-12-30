@@ -1,0 +1,49 @@
+<button mdbBtn type="button" color="primary" autocomplete="off" [(ngModel)]="singleModel" mdbCheckbox
+        btnCheckboxTrue="1" btnCheckboxFalse="0" mdbWavesEffect>
+  Add new user
+</button>
+<!-- Default form contact -->
+<form *ngIf="singleModel==1" #form [formGroup]="userForm" (submit)="onSubmit()"
+      class="text-center border border-light p-5">
+
+  <p class="h4 mb-4">New User</p>
+
+  <!-- Name -->
+  <div class="md-form">
+    <input mdbInput type="text" id="defaultContactFormName" class="form-control mb-4" formControlName="name"
+           placeholder="Name">
+    <div
+      *ngIf="userForm.controls['name'].invalid && (userForm.controls['name'].dirty || userForm.controls['name'].touched)">
+      <mdb-error
+        *ngIf="userForm.controls['name'].errors.required">
+        Name is required.
+      </mdb-error>
+      <mdb-error *ngIf="userForm.controls['name'].errors.minlength">
+        Name must be at least 4 characters long.
+      </mdb-error>
+    </div>
+
+
+  </div>
+  <!-- Email -->
+  <div class="md-form">
+    <input mdbInput type="email" id="defaultContactFormEmail" class="form-control mb-4" formControlName="email"
+           placeholder="E-mail">
+    <div
+      *ngIf="userForm.controls['email'].invalid && (userForm.controls['email'].dirty || userForm.controls['email'].touched)">
+      <mdb-error
+        *ngIf="userForm.controls['email'].errors.required">
+        Name is required.
+      </mdb-error>
+      <mdb-error *ngIf="userForm.controls['email'].errors.email">
+        Name must be an email
+      </mdb-error>
+    </div>
+
+
+  </div>
+
+  <!-- Send button -->
+  <button [disabled]="userForm.invalid" class="btn btn-info " type="submit">Create</button>
+
+</form>

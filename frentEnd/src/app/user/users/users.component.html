@@ -1,0 +1,41 @@
+<h2 class="h1-responsive font-weight-bold text-center my-5">List of users</h2>
+
+<table class="table table-striped" [mfData]="users" #mf="mfDataTable" [mfRowsOnPage]="20">
+  <thead>
+  <tr>
+    <th style="width: 30%">
+      <mfDefaultSorter by="name">Name</mfDefaultSorter>
+    </th>
+    <th style="width: 50%">
+      <mfDefaultSorter by="email">Email</mfDefaultSorter>
+    </th>
+    <th style="width: 20%">
+      <mfDefaultSorter by="age">Actions</mfDefaultSorter>
+    </th>
+
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let item of mf.data">
+    <td>{{item.name}}</td>
+    <td>{{item.email}}</td>
+    <td class="text-right">
+      <div class="d-flex flex-row">
+        <button mdbBtn type="button" color="primary" size="sm" rounded="true" routerLink="/posts/{{item._id}}"
+                mdbWavesEffect>Posts
+        </button>
+        <button mdbBtn type="button" color="danger" size="sm" rounded="true" (click)="delete(item)" mdbWavesEffect>
+          Delete
+        </button>
+      </div>
+    </td>
+  </tr>
+  </tbody>
+  <tfoot>
+  <tr>
+    <td colspan="4">
+      <mfBootstrapPaginator [rowsOnPageSet]="[5,10,25]"></mfBootstrapPaginator>
+    </td>
+  </tr>
+  </tfoot>
+</table>

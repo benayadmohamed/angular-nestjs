@@ -1,0 +1,89 @@
+<!-- Section: Blog v.1 -->
+<section class="my-5">
+
+  <!-- Section heading -->
+  <h2 class="h1-responsive font-weight-bold text-center my-5">Recent posts</h2>
+  <!-- Section description -->
+  <p class="text-center w-responsive mx-auto mb-5"></p>
+
+  <!-- Grid row -->
+  <div *ngFor="let post of posts; let i = index">
+    <div *ngIf="(i%2)==0" class="row">
+
+      <!-- Grid column -->
+      <div class="col-lg-5">
+
+        <!-- Featured image -->
+        <div class="view overlay rounded z-depth-2 mb-lg-0 mb-4 waves-light" mdbWavesEffect>
+          <img class="img-fluid" src="{{post.img}}" alt="Sample image">
+          <a>
+            <div class="mask rgba-white-slight"></div>
+          </a>
+        </div>
+
+      </div>
+      <!-- Grid column -->
+
+      <!-- Grid column -->
+      <div class="col-lg-7">
+
+        <!-- Category -->
+        <a href="#!" class="pink-text">
+          <h6 class="font-weight-bold mb-3"><i class="fa fa-image pr-2"></i>Lifestyle</h6>
+        </a>
+        <!-- Post title -->
+        <h3 class="font-weight-bold mb-3"><strong>{{post.titre}}</strong></h3>
+        <!-- Excerpt -->
+        <p>{{post.data}}.</p>
+        <!-- Post data -->
+        <p>by <a><strong>{{post.user.name}}</strong></a>, {{post.date}}</p>
+        <!-- Read more button -->
+        <a mdbBtn color="success" (click)="delete(post)" mdbWavesEffect>Delete</a>
+
+
+      </div>
+      <!-- Grid column -->
+
+    </div>
+    <div *ngIf="(i%2)!=0" class="row">
+
+
+      <!-- Grid column -->
+      <div class="col-lg-7">
+
+        <!-- Category -->
+        <a href="#!" class="pink-text">
+          <h6 class="font-weight-bold mb-3"><i class="fa fa-image pr-2"></i>Lifestyle</h6>
+        </a>
+        <!-- Post title -->
+        <h3 class="font-weight-bold mb-3"><strong>{{post.titre}}</strong></h3>
+        <!-- Excerpt -->
+        <p>{{post.data}}.</p>
+        <!-- Post data -->
+        <p>by <a><strong>{{post.user.name}}</strong></a>, {{post.date}}</p>
+        <!-- Read more button -->
+        <a mdbBtn color="success" (click)="delete(post)" mdbWavesEffect>Delete</a>
+
+      </div>
+      <!-- Grid column -->
+      <!-- Grid column -->
+      <div class="col-lg-5">
+
+        <!-- Featured image -->
+        <div class="view overlay rounded z-depth-2 mb-lg-0 mb-4 waves-light" mdbWavesEffect>
+          <img class="img-fluid" src="{{post.img}}" alt="Sample image">
+          <a>
+            <div class="mask rgba-white-slight"></div>
+          </a>
+        </div>
+
+      </div>
+      <!-- Grid column -->
+
+    </div>
+    <!-- Grid row -->
+
+    <hr class="my-5">
+  </div>
+</section>
+<!-- Section: Blog v.1 -->
